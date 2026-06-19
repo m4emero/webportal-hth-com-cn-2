@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>华体会 · 简明指南与知识库</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fcf1de 0%, #f8dcc6 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1.5rem 3rem;
+      line-height: 1.6;
+      color: #2e241e;
+    }
+
+    .page-wrapper {
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    /* 目录感布局 —— 标题带编号 */
+    .section-index {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      justify-content: center;
+    }
+
+    .index-item {
+      background: rgba(255, 240, 225, 0.6);
+      backdrop-filter: blur(2px);
+      padding: 0.75rem 1.6rem;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #4f372b;
+      border: 1px solid #edd9c5;
+      letter-spacing: 0.02em;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      transition: background 0.2s;
+    }
+
+    .index-item:hover {
+      background: #ebd4be;
+    }
+
+    .index-item span {
+      display: inline-block;
+      background: #b58b6b;
+      color: #fcf3ea;
+      border-radius: 40px;
+      padding: 0 0.6rem;
+      margin-right: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* 主卡片区 */
+    .card {
+      background: #fffffffa;
+      backdrop-filter: blur(2px);
+      border-radius: 36px;
+      box-shadow: 0 12px 30px rgba(98, 60, 34, 0.08), 0 2px 8px rgba(110, 70, 40, 0.04);
+      padding: 2.2rem 2rem;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.2s;
+      border: 1px solid rgba(230, 200, 175, 0.3);
+    }
+
+    .card-title {
+      font-size: 1.7rem;
+      font-weight: 550;
+      letter-spacing: -0.01em;
+      color: #3f2c1f;
+      border-left: 6px solid #c19473;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-sub {
+      font-size: 1rem;
+      color: #5f4a3b;
+      margin-top: -0.2rem;
+      margin-bottom: 1.8rem;
+      font-weight: 400;
+      opacity: 0.8;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem 2rem;
+    }
+
+    @media (max-width: 680px) {
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .card {
+        padding: 1.8rem 1.2rem;
+      }
+      .card-title {
+        font-size: 1.4rem;
+      }
+      body {
+        padding: 1.2rem 0.8rem 2rem;
+      }
+    }
+
+    .info-block {
+      background: #faf3eb;
+      border-radius: 28px;
+      padding: 1.3rem 1.6rem;
+      border-left: 4px solid #cba284;
+    }
+
+    .info-block p {
+      margin-bottom: 0.5rem;
+    }
+
+    .info-block strong {
+      color: #4a3224;
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bullet-list li {
+      padding: 0.4rem 0 0.4rem 1.2rem;
+      position: relative;
+    }
+
+    .bullet-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: #b48564;
+      font-weight: 700;
+      font-size: 1.3rem;
+      line-height: 1.4;
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.8rem;
+      margin: 0.8rem 0 0.2rem;
+    }
+
+    .tag {
+      background: #ede0d3;
+      border-radius: 40px;
+      padding: 0.2rem 1rem;
+      font-size: 0.85rem;
+      color: #3d2d21;
+      border: 1px solid #dcc6b2;
+    }
+
+    .btn-link-like {
+      display: inline-block;
+      background: #e7d5c2;
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      color: #2f1f14;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid #d6bb9f;
+      transition: background 0.2s;
+    }
+
+    .btn-link-like:hover {
+      background: #d6b99b;
+    }
+
+    .faq-mini {
+      margin-top: 1rem;
+      border-top: 1px dashed #dcc5b2;
+      padding-top: 1.2rem;
+    }
+
+    .faq-item {
+      padding: 0.5rem 0;
+    }
+
+    .faq-q {
+      font-weight: 550;
+      color: #3e2b1e;
+    }
+
+    .faq-a {
+      color: #574338;
+      padding-left: 0.8rem;
+      margin-top: 0.1rem;
+      font-size: 0.95rem;
+    }
+
+    .highlight-link {
+      color: #835d40;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #c7a78b;
+      transition: border 0.15s;
+    }
+
+    .highlight-link:hover {
+      border-bottom: 2px solid #835d40;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+      color: #5a4436;
+      border-top: 1px solid #e4cfbb;
+      padding-top: 1.8rem;
+    }
+
+    .hero-sub {
+      font-size: 1.8rem;
+      font-weight: 280;
+      color: #3a2a1d;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-sub small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #6f5543;
+      background: #f1e2d3;
+      padding: 0.1rem 1rem;
+      border-radius: 60px;
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- 目录导航式索引 -->
+  <div class="section-index">
+    <div class="index-item"><span>01</span> 简明指南</div>
+    <div class="index-item"><span>02</span> 提醒事项</div>
+    <div class="index-item"><span>03</span> 相关知识</div>
+    <div class="index-item"><span>04</span> 常见疑问</div>
+  </div>
+
+  <!-- Hero / 开篇 -->
+  <div class="card" style="padding-bottom: 1.8rem;">
+    <div class="hero-sub">
+      关于华体会<br>
+      <small>知识库 · 访问提醒 · 实用指引</small>
+    </div>
+    <p style="font-size: 1.05rem; max-width: 700px;">
+      这里是一份平实的参考页面，围绕 <strong>华体会</strong> 整理了一些基础信息、操作注意事项以及常见问题的摘要。
+      无论你是初次了解，还是希望快速核对某些细节，下面的内容或许能提供一些帮助。
+    </p>
+    <div style="margin-top: 0.8rem;">
+      <span class="tag"># 访问提示</span>
+      <span class="tag"># 功能简述</span>
+      <span class="tag"># 安全备忘</span>
+    </div>
+  </div>
+
+  <!-- 主内容区：网格布局 左说明 右提示 -->
+  <div class="grid-2col">
+    <!-- 左侧：说明区 + 特点 -->
+    <div class="card" style="margin-bottom: 0;">
+      <div class="card-title">简明指南</div>
+      <p><strong>华体会</strong> 是一个以体育、娱乐及互动内容为主体的线上平台，提供多种赛事观赏、资讯整合及社区交流功能。以下是一些基础了解方向：</p>
+      <ul class="bullet-list">
+        <li>界面主要模块包含赛事直播、数据统计、回放与专题分析。</li>
+        <li>注册流程通常需要手机或邮箱验证，建议使用常用联系方式。</li>
+        <li>账户安全方面，注意保护登录凭证，避免在公共设备上保存密码。</li>
+        <li>内容更新节奏较快，可留意首页或消息中心获取最新活动。</li>
+      </ul>
+      <div class="tag-group">
+        <span class="tag">⚙️ 功能模块</span>
+        <span class="tag">📋 注册须知</span>
+        <span class="tag">🛡️ 安全建议</span>
+      </div>
+      <div style="margin-top: 1.2rem;">
+        <a href="https://webportal-hth.com.cn" class="highlight-link">华体会</a> 的官方页面提供更详细的版块介绍，可作为主要参考。
+      </div>
+    </div>
+
+    <!-- 右侧：提示区 + 相关信息 -->
+    <div class="card" style="margin-bottom: 0;">
+      <div class="card-title">访问提醒</div>
+      <div class="info-block">
+        <p><strong>⚠️ 网络与链接</strong><br>
+        建议通过稳定网络环境访问，若页面加载异常可尝试刷新或更换时段。
+        <a href="https://webportal-hth.com.cn" class="highlight-link">华体会</a> 的域名及服务可能会根据运营需要调整，请以实际页面为准。</p>
+        <p><strong>📌 账户与隐私</strong><br>
+        不要向他人透露密码或验证码，官方不会通过非正规渠道索取敏感信息。定期检查登录记录。</p>
+      </div>
+      <div style="margin-top: 1rem;">
+        <span class="btn-link-like">📖 了解安全设置</span>
+        <span class="btn-link-like" style="margin-left: 0.4rem;">🔍 常见问题</span>
+      </div>
+      <div style="margin-top: 1rem; font-size: 0.95rem; background: #f9f0e6; border-radius: 24px; padding: 0.8rem 1.2rem;">
+        <strong>相关信息：</strong> 平台偶尔会进行维护或功能更新，届时部分服务可能短暂不可用，通常会有提前公告。
+      </div>
+    </div>
+  </div>
+
+  <!-- 底部扩展： FAQ摘要 + 附加场景 -->
+  <div class="card" style="margin-top: 0.8rem;">
+    <div class="card-title" style="font-size: 1.4rem;">FAQ 摘要 · 常见疑问</div>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <div class="faq-q">问：首次使用华体会需要下载软件吗？</div>
+        <div class="faq-a">答：大多功能通过浏览器即可直接使用，部分高级交互可能建议安装官方应用程序，具体以站点提示为准。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">问：忘记密码如何处理？</div>
+        <div class="faq-a">答：登录页通常有“找回密码”入口，按步骤通过绑定邮箱或手机号重置。如遇困难可联系客服渠道。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">问：是否支持多语言界面？</div>
+        <div class="faq-a">答：目前主要以中文为主，部分区域或页面可能提供英文选项，具体视版本而定。</div>
+      </div>
+    </div>
+    <div style="margin-top: 1rem; padding-top: 0.6rem; border-top: 1px solid #edd7c4; display: flex; flex-wrap: wrap; gap: 0.6rem 1.2rem;">
+      <span>🔹 更多细节可直接查阅 <a href="https://webportal-hth.com.cn" class="highlight-link">华体会</a> 帮助中心</span>
+      <span>🔹 实际规则以平台最新公示为准</span>
+    </div>
+  </div>
+
+  <!-- 场景小卡片 (附加) -->
+  <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-between; margin-top: 1.2rem;">
+    <div style="flex: 1; min-width: 180px; background: #f7ede3; border-radius: 24px; padding: 1rem 1.2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+      <div style="font-weight: 500; margin-bottom: 0.2rem;">📺 观赛场景</div>
+      <div style="font-size: 0.9rem;">实时比分、赛程预告、历史数据对照，适合赛前研究与赛后复盘。</div>
+    </div>
+    <div style="flex: 1; min-width: 180px; background: #f7ede3; border-radius: 24px; padding: 1rem 1.2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+      <div style="font-weight: 500; margin-bottom: 0.2rem;">📋 资讯获取</div>
+      <div style="font-size: 0.9rem;">汇集相关新闻、专题分析、活动预告，便于快速了解动态。</div>
+    </div>
+    <div style="flex: 1; min-width: 150px; background: #f7ede3; border-radius: 24px; padding: 1rem 1.2rem; box-shadow: 0 2px 6px rgba(0,0,0,0.03);">
+      <div style="font-weight: 500; margin-bottom: 0.2rem;">🔐 账户维护</div>
+      <div style="font-size: 0.9rem;">定期修改密码、绑定二次验证，可提升账户安全性。</div>
+    </div>
+  </div>
+
+  <!-- footer 区域 -->
+  <div class="footer-note">
+    <span style="background: #f0e0d0; padding: 0.1rem 1rem; border-radius: 60px;">知识库页面 · 内容仅供参考</span><br>
+    <span style="opacity: 0.7; font-size: 0.8rem;">本介绍页仅作信息整理，具体功能与规则以 <a href="https://webportal-hth.com.cn" class="highlight-link" style="border-bottom: none;">华体会</a> 官方实时页面为准。</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://m4emero.github.io/webportal-hth-com-cn-2/sitemap.xml
