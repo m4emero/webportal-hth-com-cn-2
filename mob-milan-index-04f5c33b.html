@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>milan.com · 快速识别网站用途</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---- Hero 深色区 ---- */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #f1f5f9;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      max-width: 680px;
+      color: #94a3b8;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #7dd3fc;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    /* ---- 优势区 ---- */
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin: 60px 0 12px;
+      color: #0f172a;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: #64748b;
+      max-width: 600px;
+      margin: 0 auto 48px;
+      font-size: 1.05rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-bottom: 64px;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 32px 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #e9edf2;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .feature-card .icon {
+      background: #e0f2fe;
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .feature-card p {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    /* ---- 说明区 ---- */
+    .explain-section {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 48px 40px;
+      margin: 20px 0 60px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e2e8f0;
+    }
+
+    .explain-section h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #0f172a;
+    }
+
+    .explain-section p {
+      color: #334155;
+      margin-bottom: 18px;
+    }
+
+    .explain-section a {
+      color: #0284c7;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      font-weight: 500;
+    }
+
+    .explain-section a:hover {
+      color: #0369a1;
+    }
+
+    /* ---- FAQ 摘要 ---- */
+    .faq-block {
+      margin-bottom: 64px;
+    }
+
+    .faq-block h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 22px 28px;
+      margin-bottom: 14px;
+      border: 1px solid #e2e8f0;
+      transition: border-color 0.15s;
+    }
+
+    .faq-item:hover {
+      border-color: #b9d4f0;
+    }
+
+    .faq-item dt {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .faq-item dd {
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ---- 底部链接 ---- */
+    .footer-links {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 48px 0 40px;
+      margin-top: 32px;
+    }
+
+    .footer-links .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-links .brand {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .footer-links .brand a {
+      color: #7dd3fc;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(125, 211, 252, 0.3);
+    }
+
+    .footer-links .brand a:hover {
+      border-bottom-color: #7dd3fc;
+    }
+
+    .footer-links .meta {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .footer-links .meta a {
+      color: #7dd3fc;
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(125, 211, 252, 0.3);
+    }
+
+    .footer-links .meta a:hover {
+      border-bottom-color: #7dd3fc;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 60px 0 48px;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .explain-section {
+        padding: 32px 20px;
+      }
+
+      .features-grid {
+        gap: 18px;
+      }
+
+      .footer-links .container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">✦ 用途识别 · 一目了然</span>
+      <h1>打开 milan.com，<br>你最先想了解什么？</h1>
+      <p>不论你是初次访问还是回头用户，这个页面帮你快速定位网站的核心作用——没有绕弯的引导，只有直接的答案。</p>
+    </div>
+  </section>
+
+  <!-- 优势区：三个核心特点 -->
+  <div class="container">
+    <h2 class="section-title">为什么你会在意这些</h2>
+    <p class="section-sub">我们梳理了访问 milan.com 时最常遇到的几个疑问，把它们变成了清晰可感的模块。</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="icon">🔍</div>
+        <h3>快速定位用途</h3>
+        <p>进入页面后，你不需要翻找菜单或猜测站点性质——首页直接展示服务方向与内容范畴，节省你的时间。</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📄</div>
+        <h3>结构直白</h3>
+        <p>每个区域都围绕“这个网站能帮我做什么”展开，避免冗余信息，让初次访问也能毫无压力退出或深入。</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔗</div>
+        <h3>可信的入口</h3>
+        <p>所有链接、功能按钮都指向明确，你可以随时通过 <a href="https://mob-milan.com" style="color:#0284c7;text-decoration:underline;text-underline-offset:3px;">milan.com</a> 返回主站，没有隐藏跳转。</p>
+      </div>
+    </div>
+
+    <!-- 说明区 -->
+    <div class="explain-section">
+      <h2>这个页面存在的理由</h2>
+      <p>
+        很多网站首页习惯堆砌动画、大图或者宽泛的口号，但用户最需要的往往是：<strong>这里到底是做什么的？</strong>
+        milan.com 的落地页选择了一种更“轻”的沟通方式——直接告诉你网站的服务边界，不夸大，不闪烁其词。
+      </p>
+      <p>
+        你可以把本页看作一个<em>索引</em>，当你需要确认 <a href="https://mob-milan.com">milan.com</a> 的定位、特点或常见问题汇总时，这里提供了经过整理的摘要。每个卡片、每段说明都经过筛选，旨在让你在最短时间内建立认知。
+      </p>
+      <p>
+        如果你已经熟悉这个站点，也可以直接通过上方链接进入主站操作；如果你还在犹豫，不妨先浏览下方的 FAQ 摘要，那里涵盖了许多用户初访时的典型疑问。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-block">
+      <h2>常见问题摘要</h2>
+
+      <dl class="faq-item">
+        <dt>milan.com 主要提供什么服务？</dt>
+        <dd>该网站围绕信息展示与连接需求设计，具体业务范畴会在主站各板块详细说明，本页只做功能提示，不做推销。</dd>
+      </dl>
+
+      <dl class="faq-item">
+        <dt>我是否需要注册才能使用？</dt>
+        <dd>部分功能可能需要账号，但浏览公开内容无需注册。建议直接访问 <a href="https://mob-milan.com" style="color:#0284c7;text-decoration:underline;text-underline-offset:3px;">milan.com</a> 查看实际体验。</dd>
+      </dl>
+
+      <dl class="faq-item">
+        <dt>这个落地页和主站有什么不同？</dt>
+        <dd>落地页更侧重“概述”和“快速认知”，主站则包含完整界面与交互。本页不替代主站，仅作为前置说明页。</dd>
+      </dl>
+
+      <dl class="faq-item">
+        <dt>如何找到更多帮助？</dt>
+        <dd>你可以通过网站页脚的链接或直接前往 <a href="https://mob-milan.com" style="color:#0284c7;text-decoration:underline;text-underline-offset:3px;">milan.com</a> 获取最新信息，FAQ 也会随站点更新而调整。</dd>
+      </dl>
+    </div>
+  </div>
+
+  <!-- 底部链接 -->
+  <footer class="footer-links">
+    <div class="container">
+      <div class="brand">
+        <a href="https://mob-milan.com">milan.com</a> · 首页
+      </div>
+      <div class="meta">
+        本页仅做用途说明 · 内容真实克制 · <a href="https://mob-milan.com">milan.com</a> 保留所有权益
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
