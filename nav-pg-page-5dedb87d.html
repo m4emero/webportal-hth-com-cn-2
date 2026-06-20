@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pg导航 – 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9fafb;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1f2937;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background: #ffffff;
+            padding: 3rem 2.5rem;
+            border-radius: 28px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+            margin: 2rem auto;
+            transition: box-shadow 0.25s ease;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.75rem;
+            }
+            .container {
+                padding: 2rem 1.25rem;
+                border-radius: 20px;
+            }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #6b7280;
+            margin-bottom: 2.2rem;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-top: 2.8rem;
+            margin-bottom: 0.75rem;
+            color: #1f2937;
+            letter-spacing: -0.01em;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.4rem;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-top: 1.75rem;
+            margin-bottom: 0.35rem;
+            color: #374151;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #374151;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #1e40af;
+            border-bottom-color: #1e40af;
+        }
+
+        .highlight-card {
+            background: #f3f4f6;
+            border-radius: 16px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.8rem 0 1.2rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .highlight-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.2rem 0 1rem;
+        }
+
+        @media (max-width: 500px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-item {
+            background: #f9fafb;
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            transition: background 0.2s;
+        }
+
+        .feature-item strong {
+            display: block;
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-item span {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .faq-item {
+            margin: 1.2rem 0 0.2rem;
+        }
+
+        .faq-item p {
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-question {
+            font-weight: 500;
+            color: #1f2937;
+        }
+
+        .faq-answer {
+            color: #4b5563;
+            padding-left: 0.5rem;
+            border-left: 2px solid #d1d5db;
+            padding-left: 1rem;
+            margin-top: 0.1rem;
+        }
+
+        .note-box {
+            background: #eff6ff;
+            border-radius: 12px;
+            padding: 1rem 1.4rem;
+            margin: 1.5rem 0 0.8rem;
+            font-size: 0.95rem;
+            border: 1px solid #bfdbfe;
+            color: #1e3a5f;
+        }
+
+        .usage-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .usage-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.4rem;
+            position: relative;
+        }
+
+        .usage-list li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #3b82f6;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+            color: #9ca3af;
+            text-align: center;
+        }
+
+        .seed-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>pg导航 · 稳定入口说明</h1>
+        <div class="subhead">一个经过整理的导航页，围绕常用站点与信息结构，保持直接与清晰</div>
+
+        <p>在众多网络入口里，始终保持一个可靠、整洁的起点并不容易。<a href="https://nav-pg.com">pg导航</a> 正是为此而设——它不追求面面俱到，而是将使用频率较高、信息质量稳定的站点加以归类，方便日常取用。无论是查找资料、访问工具还是浏览内容，一个结构干净的导航页能有效减少重复搜索的时间。</p>
+
+        <div class="highlight-card">
+            <p><strong>关于本页的定位</strong><br>
+            这不是一个聚合全部信息的门户，而是一个经过筛选、保持克制的工具页。页面上的每个链接都经过基础可用性确认，并尽量以简洁的标签呈现。如果你需要一个不掺杂多余信息的起点，可以尝试将 <a href="https://nav-pg.com">pg导航</a> 设为浏览器首页或书签栏常驻。</p>
+        </div>
+
+        <h2>页面亮点</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>分类清晰</strong>
+                <span>按工具、资讯、生活、开发等常见场景分组，减少翻页成本</span>
+            </div>
+            <div class="feature-item">
+                <strong>轻量加载</strong>
+                <span>页面结构精简，无多余脚本或追踪，打开即用</span>
+            </div>
+            <div class="feature-item">
+                <strong>直接链接</strong>
+                <span>每个条目均指向目标站点本身，不经过中间跳转</span>
+            </div>
+            <div class="feature-item">
+                <strong>稳定维护</strong>
+                <span>链接定期检查，失效或变更会及时调整或替换</span>
+            </div>
+        </div>
+
+        <h2>使用建议</h2>
+        <p>根据日常浏览习惯，可以将导航页放在浏览器的书签栏或新标签页扩展中。以下场景可能适合参考：</p>
+        <ul class="usage-list">
+            <li><strong>日常信息获取</strong> – 从导航页直接进入新闻、社区、文档站点，无需每次都重新搜索</li>
+            <li><strong>工作与学习</strong> – 将常用工具（词典、代码参考、在线白板）集中在一处，减少切换成本</li>
+            <li><strong>轻量探索</strong> – 偶尔看看分类里是否有尚未了解但质量不错的资源</li>
+        </ul>
+        <p>如果你对页面布局或分类有自己的想法，也可以基于这个结构自行调整——导航页的设计初衷就是便于个性化使用。</p>
+
+        <h2>关于访问的几点说明</h2>
+        <div class="note-box">
+            ⚡ 本导航页仅提供链接汇总，不存储第三方站点的内容。每个链接对应的网站均有自己的使用条款与隐私政策，建议在提交个人信息前自行查阅。如发现链接失效或目标地址变更，可反馈以便更新。
+        </div>
+        <p>使用过程中，请遵守目标网站的相关规定。导航页本身不收集浏览数据，也不设置强制跳转或弹窗。如果你希望保持浏览环境的简洁，这是一个值得尝试的起点。</p>
+
+        <h2>常见疑问</h2>
+        <div class="faq-item">
+            <p class="faq-question">导航页的链接多久更新一次？</p>
+            <div class="faq-answer">没有固定周期，但会持续留意链接的有效性。如果发现大量失效会集中处理，平时零星问题也会尽快修正。</p>
+        </div>
+        <div class="faq-item">
+            <p class="faq-question">我可以提交一个新的站点建议吗？</p>
+            <div class="faq-answer">目前导航页保持相对固定的内容范围，暂不开放公开提交。未来如有扩展计划会另行说明。</p>
+        </div>
+        <div class="faq-item">
+            <p class="faq-question">手机浏览器上显示正常吗？</p>
+            <div class="faq-answer">页面采用响应式设计，在手机、平板及桌面设备上均可正常浏览。分类会自适应折行，不影响点击。</p>
+        </div>
+
+        <div class="footer-note">
+            <a href="https://nav-pg.com">pg导航</a> · 稳定 · 直接 · 不冗余
+        </div>
+        <div class="seed-marker"></div>
+    </div>
+</body>
+</html>
