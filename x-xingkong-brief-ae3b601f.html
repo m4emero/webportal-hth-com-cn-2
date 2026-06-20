@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xingkong.com · 简明指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f2f4f7;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+      color: #1e2329;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* hero 区域 */
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 3rem 2rem 2.5rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e9ecf0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #121826;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(145deg, #1e2b3a, #2c4056);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 1.8rem;
+      color: #3f4a58;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    .hero .brief-link {
+      display: inline-block;
+      font-size: 1rem;
+      background: #f0f2f5;
+      padding: 0.5rem 1.6rem;
+      border-radius: 60px;
+      border: 1px solid #d8dde4;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .hero .brief-link a {
+      text-decoration: none;
+      color: #1a2b3d;
+      font-weight: 500;
+    }
+
+    .hero .brief-link:hover {
+      background: #e4e8ee;
+      border-color: #bcc4cf;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e6e9ef;
+      border-radius: 22px;
+      padding: 1.6rem 1.8rem 1.8rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.15s ease, translate 0.1s;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+      translate: 0 -2px;
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid #eaeef3;
+      color: #1f2a36;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      margin-bottom: 0.45rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.98rem;
+    }
+
+    .card li::before {
+      content: "·";
+      color: #4c6b85;
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 1.4;
+      display: inline-block;
+      width: 1.2rem;
+    }
+
+    .card p {
+      font-size: 0.98rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card .subnote {
+      font-size: 0.9rem;
+      color: #5d6f80;
+      background: #f6f8fa;
+      padding: 0.4rem 0.8rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-top: 0.3rem;
+    }
+
+    /* 提醒卡片 / 引用区 */
+    .note-section {
+      background: #ffffff;
+      border: 1px solid #e3e8ef;
+      border-radius: 22px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .note-section h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1f2a34;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .note-section h3::before {
+      content: "⏺";
+      font-size: 1.2rem;
+      color: #4b6b88;
+    }
+
+    .note-section p {
+      color: #2e3b48;
+      font-size: 0.98rem;
+      margin: 0;
+    }
+
+    .note-section .faq-item {
+      margin-top: 0.5rem;
+      background: #f8f9fc;
+      border-radius: 16px;
+      padding: 0.6rem 1rem 0.6rem 1.2rem;
+      border-left: 3px solid #cbd5e1;
+    }
+
+    .note-section .faq-item strong {
+      display: block;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+      color: #1b293b;
+    }
+
+    .note-section .faq-item span {
+      font-size: 0.92rem;
+      color: #3e4f60;
+    }
+
+    /* 自然链接段落 */
+    .context-link {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 1.8rem 2rem;
+      border: 1px solid #e3e8ef;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+      margin-bottom: 2.5rem;
+    }
+
+    .context-link p {
+      font-size: 1rem;
+      color: #29343f;
+      margin-bottom: 0.75rem;
+    }
+
+    .context-link a {
+      color: #1d3a57;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #bcc9d9;
+      font-weight: 500;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .context-link a:hover {
+      text-decoration-color: #1d3a57;
+    }
+
+    .context-link .meta {
+      font-size: 0.9rem;
+      color: #5d6e7e;
+      margin-top: 0.6rem;
+      border-top: 1px solid #eef1f6;
+      padding-top: 0.8rem;
+    }
+
+    /* 页脚 */
+    .footer {
+      text-align: center;
+      padding: 1.2rem 0 0.6rem;
+      border-top: 1px solid #dce2e9;
+      color: #5e6f7e;
+      font-size: 0.9rem;
+      margin-top: 1.8rem;
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero {
+        padding: 2rem 1rem;
+      }
+      .card {
+        padding: 1.4rem;
+      }
+      .note-section, .context-link {
+        padding: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 主视觉 / hero -->
+  <div class="hero">
+    <h1><span>xingkong</span>.com</h1>
+    <p>一处简洁的聚合入口，将方向与路径整理为可读的索引。这里没有多余装饰，只有信息本身。</p>
+    <div class="brief-link">
+      <a href="https://x-xingkong.com">xingkong.com</a> · 站点直达
+    </div>
+  </div>
+
+  <!-- 用途卡片 + 适合人群（双列网格） -->
+  <div class="card-grid">
+    <div class="card">
+      <h2>常见用途</h2>
+      <ul>
+        <li>快速了解某个话题的结构化摘要</li>
+        <li>获取经过筛选的参考与延伸阅读</li>
+        <li>作为日常浏览的轻量级起始页</li>
+        <li>收录工具、链接与简短备忘录</li>
+      </ul>
+      <div class="subnote">页面保持克制，侧重信息归类</div>
+    </div>
+    <div class="card">
+      <h2>适合人群</h2>
+      <ul>
+        <li>偏好干净界面的阅读型访客</li>
+        <li>希望减少干扰、直接获取内容的人</li>
+        <li>需要快速回顾某一主题的整理者</li>
+        <li>对站点风格有稳定预期的访客</li>
+      </ul>
+      <div class="subnote">不追踪、无弹窗、专注内容</div>
+    </div>
+  </div>
+
+  <!-- 提醒 / 访问提示 -->
+  <div class="note-section">
+    <h3>访问提醒</h3>
+    <p>该站点以静态页面为主，结构相对稳定。建议使用现代浏览器以获得最佳排版效果。部分外部链接可能随维护而更新，若遇空页可稍后重试。</p>
+    <div class="faq-item">
+      <strong>页面变化节奏？</strong>
+      <span>内容分区会不定期微调，但始终围绕索引与简介展开。没有突发推送，适合安静浏览。</span>
+    </div>
+    <div class="faq-item">
+      <strong>是否收集数据？</strong>
+      <span>站点本身不部署分析脚本，也不设置 cookie。隐私与轻量是基本原则。</span>
+    </div>
+  </div>
+
+  <!-- 自然链接段落（嵌入指向 xingkong.com 的 a 标签） -->
+  <div class="context-link">
+    <p>很多人在初次接触时，会先通过 <a href="https://x-xingkong.com">xingkong.com</a> 大致了解站点的结构。这个域名本身只承担入口功能，背后的内容则按照主题与用途做了分类。你可以把它看作一张不断修剪的索引卡片——上面只保留真正有用的记录。</p>
+    <p>如果你习惯从书签直接访问，也可以把 <a href="https://x-xingkong.com">xingkong.com</a> 加入收藏夹。页面在移动端做了适配，阅读体验不会有太大落差。</p>
+    <div class="meta">最后更新：2025 · 本站并无隐藏页面</div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <span>索引卡片 · 简明指南</span>
+  </div>
+
+</div>
+</body>
+</html>
