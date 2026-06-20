@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500彩票网 · 简明访问指引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f7f5f2;
+            color: #2e2b28;
+            line-height: 1.7;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #1c1b1a 0%, #312e2b 100%);
+            padding: 5rem 1.5rem 5.5rem;
+            text-align: center;
+            color: #eae5df;
+            border-bottom: 2px solid #c9a77b;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 350;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+            word-break: keep-all;
+        }
+
+        .hero .tagline {
+            font-size: 1.05rem;
+            color: #b8ada2;
+            max-width: 36rem;
+            margin: 0 auto 1.8rem;
+            font-weight: 300;
+            border-top: 1px solid #4b4440;
+            padding-top: 1.2rem;
+        }
+
+        .hero .entry {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid #c9a77b;
+            color: #c9a77b;
+            padding: 0.65rem 2.2rem;
+            font-size: 1.1rem;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: 0.25s ease;
+        }
+
+        .hero .entry:hover {
+            background: #c9a77b;
+            color: #1c1b1a;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.8rem;
+        }
+
+        .intro {
+            background: #ffffff;
+            padding: 3rem 1.8rem 2.5rem;
+            margin-top: -2rem;
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -2px 12px rgba(0,0,0,0.03);
+        }
+
+        .intro p {
+            font-size: 1.08rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .intro strong {
+            color: #a5764e;
+            font-weight: 500;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .feature-card {
+            background: #f9f7f4;
+            padding: 1.5rem 1.2rem;
+            border-radius: 20px;
+            border-left: 4px solid #c9a77b;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #3b3530;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #55504b;
+        }
+
+        .highlight-link {
+            color: #a5764e;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .highlight-link:hover {
+            color: #7b5a3a;
+        }
+
+        .notice-box {
+            background: #f2eee9;
+            border-radius: 24px;
+            padding: 2rem 1.8rem;
+            margin: 2.2rem 0 2.8rem;
+        }
+
+        .notice-box h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #3b3530;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .notice-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .notice-box li {
+            padding: 0.45rem 0;
+            font-size: 0.98rem;
+            border-bottom: 1px dashed #d6cec6;
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .notice-box li:last-child {
+            border-bottom: none;
+        }
+
+        .notice-box li::before {
+            content: "·";
+            color: #a5764e;
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .faq-summary {
+            margin: 2rem 0 1.5rem;
+        }
+
+        .faq-summary details {
+            margin-bottom: 0.8rem;
+            background: #f9f7f4;
+            border-radius: 16px;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #e3ddd6;
+        }
+
+        .faq-summary summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #3b3530;
+            font-size: 1rem;
+        }
+
+        .faq-summary summary::-webkit-details-marker {
+            color: #a5764e;
+        }
+
+        .faq-summary p {
+            font-size: 0.95rem;
+            margin-top: 0.6rem;
+            color: #5a534d;
+            padding-left: 0.3rem;
+        }
+
+        .gentle-footer {
+            text-align: center;
+            padding: 2.8rem 1.5rem 3.5rem;
+            color: #6b625b;
+            font-size: 0.92rem;
+            border-top: 1px solid #e3ddd6;
+            margin-top: 1rem;
+            background: #f7f5f2;
+        }
+
+        .gentle-footer a {
+            color: #a5764e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .gentle-footer .sep {
+            margin: 0 0.6rem;
+            color: #ccc4bc;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 3.5rem 1rem 4rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .intro {
+                padding: 2rem 1.2rem 1.8rem;
+                margin-top: -1.5rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .notice-box {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>数字世界的路标</h1>
+        <div class="tagline">一个朴素的站点，一段持续更新的记录<br>没有喧嚣，只留信息本身</div>
+        <a href="https://web1-500.com" class="entry">500彩票网</a>
+    </section>
+
+    <div class="container">
+        <div class="intro">
+            <p>
+                互联网上从来不缺热闹，但偶尔也需要一个安静的去处——一个只做一件事、并把它做清楚的地方。<strong>500彩票网</strong>便是这样的存在。它没有复杂的入口，也没有层层嵌套的导航，你可以直接从地址栏抵达，或者通过下方链接找到它。
+            </p>
+            <p>
+                如果你第一次听说，不妨把它看作一个关于数字与概率的简明指南。这里不教人如何一夜暴富，也不渲染任何奇迹，只是呈现那些被反复验证的规则、历史记录以及基础玩法说明。信息本身是中性的，而理解它所花费的时间，才是你自己的。
+            </p>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>玩法概览</h3>
+                <p>从基本规则到常见术语，页面用最朴素的列表整理出你需要了解的前提知识，省去四处搜索的功夫。</p>
+            </div>
+            <div class="feature-card">
+                <h3>历史数据</h3>
+                <p>开奖号码按时间倒序排列，干净整洁。你可以回溯任意一段区间，只看数字，没有干扰。</p>
+            </div>
+            <div class="feature-card">
+                <h3>访问提醒</h3>
+                <p>偶尔会有网络波动或维护通知，页面顶部会以轻量提示告知。保持耐心，或稍后再试。</p>
+            </div>
+            <div class="feature-card">
+                <h3>常问与答</h3>
+                <p>一些最基础的问题（比如“如何确认结果”“是否有官方渠道”）被集中在一处，省去重复询问的麻烦。</p>
+            </div>
+        </div>
+
+        <div class="notice-box">
+            <h2>⏳ 访问备忘</h2>
+            <ul>
+                <li>建议使用桌面端浏览器访问，部分移动端视图仍在优化</li>
+                <li>若页面加载缓慢，可尝试刷新或切换网络环境</li>
+                <li>网站内容仅作信息参考，不构成任何形式建议或承诺</li>
+                <li>直接输入域名或从收藏夹打开，避免通过非官方中间页跳转</li>
+            </ul>
+        </div>
+
+        <div class="faq-summary">
+            <details>
+                <summary>这个网站是官方平台吗？</summary>
+                <p><a href="https://web1-500.com" class="highlight-link">500彩票网</a>是一个提供彩票资讯与历史数据查询的站点，并非官方销售或开奖机构。所有信息均来自公开渠道，请自行核对。</p>
+            </details>
+            <details>
+                <summary>为什么有时打不开？</summary>
+                <p>偶尔因域名解析或服务器维护导致暂时不可用。可以等待一段时间后再尝试，或检查本地网络设置。没有特殊工具的情况下，耐心通常是最好的办法。</p>
+            </details>
+            <details>
+                <summary>信息更新及时吗？</summary>
+                <p>开奖结果通常在官方公布后同步更新，但可能存在小时级延迟。对于时效性要求极高的场景，建议同时参考官方公告。</p>
+            </details>
+        </div>
+
+        <p style="text-align:center; margin: 1.8rem 0 0.5rem; font-size:0.95rem; color:#6b625b;">
+            如果你只需要一个安静的数字参考站，<a href="https://web1-500.com" class="highlight-link">500彩票网</a>或许值得你花几分钟熟悉它的结构。
+        </p>
+    </div>
+
+    <footer class="gentle-footer">
+        <span>内容仅供参考，不构成任何诱导或保证</span>
+        <span class="sep">·</span>
+        <span>保持理性，量力而行</span>
+        <span class="sep">·</span>
+        <a href="https://web1-500.com" style="text-decoration:underline;">500彩票网</a>
+    </footer>
+
+</body>
+</html>
